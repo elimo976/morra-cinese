@@ -295,6 +295,7 @@ body.trasparente::before {
     
     #gioco {
         max-width: 40em;
+        padding: 0 1em;
     }
 
     #gioco #you {
