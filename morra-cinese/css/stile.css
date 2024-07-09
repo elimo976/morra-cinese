@@ -1,0 +1,380 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    width: 1200px;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0;
+}
+
+.sfondo {
+    text-align: center;
+    background: url(../immagini/chinese-landscape.png) center center no-repeat;
+    background-size: cover;
+    padding: 1em 0;
+    position: relative;
+    min-height: 800px;
+    margin-bottom: 1em;
+}
+
+.sfondo::after {
+    content: "Immagine PNG da it.pngtree.com";
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    font-size: 0.8em;
+    color: #6f6f6f;
+}
+
+h1 {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 5em;
+    color: #800090;
+    margin-bottom: .4em;
+}
+
+button {
+    background: #176b85;
+    color: #fff;
+    font-size: 1.6em;
+    padding: 10px 35px;
+    border: solid 2px #176b85;
+    transition: .3s;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-bottom: 1em;
+}
+
+button:hover {
+    background: #ffffff73;
+    color: #176b85;
+}
+
+#gioco {
+    max-width: 50em;
+    margin: 1em auto;
+    overflow: hidden;
+    position: relative;
+    padding-right: 3.3em;
+}
+
+
+#gioco #you {
+    border: solid 5px #176b85;
+    width: 20em;
+    height: 24em;
+    float: left;
+    color: #176b85;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center 50px;
+    position: relative;
+    background-color: #ffffff;
+}
+
+#gioco #punteggioYou {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    background: #176b85;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+#gioco #you span::before {
+    content:"Foto di Clker-Free-Vector-Images da Pixabay";
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    font-size: .6rem;
+    color: #6f6f6f;
+    display: none;
+}
+
+#gioco #cpu span::before {
+    content:"Foto di Clker-Free-Vector-Images da Pixabay";
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    font-size: .6rem;
+    color: #6f6f6f;
+    display: none;
+}
+
+#gioco #you.fogliaImg span::before,
+#gioco #you.forbiceImg span::before,
+#gioco #you.sassoImg span::before, #gioco #cpu.fogliaImg span::before,
+#gioco #cpu.forbiceImg span::before,
+#gioco #cpu.sassoImg span::before {
+    display: block;
+}
+
+#gioco #cpu {
+    border: solid 5px #800090;
+    width: 20em;
+    height: 24em;
+    float: right;
+    color: #800090;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center 50px;
+    background-color: #ffffff;
+    position: relative;
+}
+
+
+#gioco #punteggioCpu {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: #800090;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+#gioco span {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 1rem;
+    display: block;
+}
+
+#gioco #scelta {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: auto;
+    display: none;
+}
+
+#gioco #scelta li {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background-color: #EEE;
+    border-radius: 50%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    opacity: .8;
+    transition: .4s;
+}
+
+#gioco #scelta li:hover {
+    opacity: 1;
+    background-color: #176b85;
+}
+
+#gioco #scelta li:last-child {
+    float: none;
+    margin: 10px auto;
+}
+
+#gioco #scelta li img {
+    width: 70%;
+    position: absolute;
+    top: 15px;
+    left: 15%;
+}
+
+.fogliaImg {
+    background-image: url(../immagini/paper.png);
+}
+
+.forbiceImg {
+    background-image: url(../immagini/scissor.png);
+}
+
+.sassoImg {
+    background-image: url(../immagini/rock.png);
+}
+
+#risultato {
+    max-width: 400px;
+    margin: 40px auto 0;
+    padding: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    background-color: #ffffff73;
+    display: none;
+    line-height: 50px;
+    border-radius: 4px;
+    border: #e1e1e1 solid 1px;
+}
+
+.patta {
+    color: #d98900;
+}
+
+.persa {
+    color: #c72a02;
+}
+
+.vinta {
+    color: #015843;
+}
+
+.nascondi {
+    display: none;
+}
+
+.mostra {
+    display: block !important;
+}
+
+body.trasparente::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000cc;
+    z-index: 9998;
+}
+
+#messaggioFinale {
+    min-width: 450px;
+    min-height: 200px;
+    padding: 1em;
+    text-align: center;
+    border-radius: 4px;
+    border: #a77474 solid 1px;
+    background-color: #e3dddd;
+    font-size: 2.8em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    color: #800090;
+    z-index: 9999;
+}
+
+#fine a {
+    color: #176b85;
+    font-size: 1.1rem;
+    margin-top: 1em;
+    text-align: center;
+    display: block;
+}
+
+#fine a:hover {
+    color: #800090;
+}
+
+@media all and (max-width: 768px) {
+
+    h1 {
+        font-weight: 600;
+        font-size: 4em;
+    }
+
+    .sfondo {
+        padding: 0;
+    }
+    
+    #gioco {
+        max-width: 40em;
+    }
+
+    #gioco #you {
+        width: 15em;
+        height: 19em;
+    }
+
+    #gioco #cpu {
+        width: 15em;
+        height: 19em;
+    }
+
+    #messaggioFinale {
+        min-width: 350px;
+        min-height: 120px;
+        font-size: 2.5em;
+        top: 40%;
+    }
+}
+@media all and (max-width: 480px) {
+
+    h1 {
+        font-weight: 500;
+        font-size: 3.5em;
+        padding: 0 1em;
+        margin-bottom: 1em;
+        line-height: 1;
+    }
+    
+    #gioco {
+        max-width: 30em;
+        margin-top: 2em;
+        padding: .3em 2em;
+    }
+
+    #gioco #you {
+        width: 11em;
+        height: 14.5em;
+    }
+
+    #gioco #cpu {
+        width: 11em;
+        height: 14.5em;
+    }
+
+    #gioco #you span::before {
+        bottom: .5em;
+        font-size: .4rem;
+    }
+    
+    #gioco #cpu span::before {
+        bottom: .5em;
+        font-size: .4rem;
+    }
+
+    #gioco #punteggioYou, #gioco #punteggioCpu {
+        position: absolute;
+        font-size: 1.2em;
+        line-height: 30px;
+        width: 30px;
+    }
+
+    #risultato {
+        max-width: 300px;
+        margin-top: 50px;
+        padding: 8px;
+        font-size: 1.3em;
+    }
+
+    #messaggioFinale {
+        width: 100%;
+        min-height: 8em;
+        font-size: 2.3em;
+        padding-top: 2em;
+        top: 50%;
+    }
+
+    #fine a {
+        font-size: 1.4rem;
+        margin-top: 2.5em;
+    }
+}
+
